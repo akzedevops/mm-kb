@@ -58,6 +58,8 @@ $ ./build-package.sh rpm
 $ ./build-package.sh clean
 ```
 
+For detailed packaging information, see [PACKAGING.md](PACKAGING.md).
+
 ### Post-installation Setup
 
 After installation (regardless of method), complete the setup:
