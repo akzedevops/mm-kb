@@ -1,0 +1,25 @@
+# Build artifacts
+*.db
+*.deb
+*.rpm
+*.tar.gz
+*.dsc
+*.changes
+*.build
+*.buildinfo
+debian/mm-kb/
+debian/.debhelper/
+debian/files
+debian/debhelper-build-stamp
+
+# RPM build directories
+~/rpmbuild/
+
+# Editor files
+*~
+.*.swp
+.*.swo
+
+# OS files
+.DS_Store
+Thumbs.db

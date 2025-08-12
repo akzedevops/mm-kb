@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    remove|purge)
+        # Update font cache
+        if command -v fc-cache >/dev/null 2>&1; then
+            fc-cache -fv || true
+        fi
+        
+        # Restart ibus if running to unload input methods
+        if pgrep -x "ibus-daemon" > /dev/null; then
+            echo "Restarting IBus daemon to unload input methods..."
+            pkill -x ibus-daemon || true
+            sleep 1
+            ibus-daemon -drx || true
+        fi
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

@@ -1,0 +1,25 @@
+Source: mm-kb
+Section: utils
+Priority: optional
+Maintainer: Naing Ye Minn <naingyeminn@gmail.com>
+Build-Depends: debhelper (>= 9), ibus-table
+Standards-Version: 3.9.8
+Homepage: https://github.com/akzedevops/mm-kb
+Vcs-Git: https://github.com/akzedevops/mm-kb.git
+Vcs-Browser: https://github.com/akzedevops/mm-kb
+
+Package: mm-kb
+Architecture: all
+Depends: ${misc:Depends}, ibus-table, zenity, fontconfig
+Description: Myanmar keyboard input method for IBus
+ This package provides Myanmar (Burmese) keyboard input methods for IBus,
+ supporting both Unicode and ZawGyi-One encodings. It includes:
+ .
+  - IBus table-based Myanmar keyboards
+  - Collection of Myanmar fonts
+  - Myanmar font switcher utility with GUI
+  - Desktop integration for easy font switching
+ .
+ The package enables users to type in Myanmar language using either Unicode
+ or ZawGyi-One encoding and provides a convenient way to switch between
+ different Myanmar fonts as the system fallback font.

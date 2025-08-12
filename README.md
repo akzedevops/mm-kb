@@ -7,15 +7,60 @@ Myanmar Keyboards
 
 ##Installation
 
+### Option 1: Using Pre-built Packages (Recommended)
+
+#### Ubuntu/Debian (.deb package)
+```bash
+# Download the .deb package from releases
+sudo dpkg -i mm-kb_1.0.0-1_all.deb
+# Or install dependencies if needed
+sudo apt-get install -f
+```
+
+#### Fedora/CentOS/RHEL (.rpm package)
+```bash
+# Download the .rpm package from releases
+sudo dnf install mm-kb-1.0.0-1.noarch.rpm
+# Or for older systems
+sudo yum install mm-kb-1.0.0-1.noarch.rpm
+```
+
+### Option 2: Manual Installation from Source
+
 - Type the following command one after another.
 ```
-$ git clone https://github.com/naingyeminn/mm-kb.git
+$ git clone https://github.com/akzedevops/mm-kb.git
 $ cd mm-kb
 $ sudo make install
 $ ibus-daemon -rdx
 $ im-config -n ibus
 $ gsettings set org.freedesktop.ibus.panel show 0
 ```
+
+### Option 3: Building Packages from Source
+
+#### Prerequisites
+- For Debian/Ubuntu: `sudo apt-get install devscripts build-essential ibus-table`
+- For Fedora/CentOS: `sudo dnf install rpm-build rpmdevtools ibus-table`
+
+#### Building packages
+```bash
+$ git clone https://github.com/akzedevops/mm-kb.git
+$ cd mm-kb
+
+# Build Debian package
+$ ./build-package.sh deb
+
+# Build RPM package  
+$ ./build-package.sh rpm
+
+# Clean build artifacts
+$ ./build-package.sh clean
+```
+
+### Post-installation Setup
+
+After installation (regardless of method), complete the setup:
 Now you can add the keyboard as follow.
 
 - Click on **Text Entry Settings...**

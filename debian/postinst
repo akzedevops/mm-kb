@@ -1,0 +1,19 @@
+#!/bin/sh
+set -e
+
+# Update font cache
+if command -v fc-cache >/dev/null 2>&1; then
+    fc-cache -fv /usr/share/fonts/mm || true
+fi
+
+# Restart ibus if running
+if pgrep -x "ibus-daemon" > /dev/null; then
+    echo "Restarting IBus daemon to load new input methods..."
+    pkill -x ibus-daemon || true
+    sleep 1
+    ibus-daemon -drx || true
+fi
+
+#DEBHELPER#
+
+exit 0

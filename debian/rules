@@ -1,0 +1,40 @@
+#!/usr/bin/make -f
+# -*- makefile -*-
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# Build ibus table databases
+	ibus-table-createdb -n mm-myanmar3.db -s src/tables/mm-myanmar3.txt
+	ibus-table-createdb -n mm-zawgyi.db -s src/tables/mm-zawgyi.txt
+
+override_dh_auto_install:
+	# Install ibus table databases
+	install -d $(CURDIR)/debian/mm-kb/usr/share/ibus-table/tables
+	install -m 644 mm-myanmar3.db $(CURDIR)/debian/mm-kb/usr/share/ibus-table/tables/
+	install -m 644 mm-zawgyi.db $(CURDIR)/debian/mm-kb/usr/share/ibus-table/tables/
+	
+	# Install icons
+	install -d $(CURDIR)/debian/mm-kb/usr/share/ibus-table/icons
+	install -m 644 src/icons/*.svg $(CURDIR)/debian/mm-kb/usr/share/ibus-table/icons/
+	
+	# Install fonts
+	install -d $(CURDIR)/debian/mm-kb/usr/share/fonts/mm
+	install -m 644 src/fonts/*.ttf $(CURDIR)/debian/mm-kb/usr/share/fonts/mm/
+	
+	# Install Myanmar font switcher
+	install -d $(CURDIR)/debian/mm-kb/usr/share/mmfs
+	install -m 644 src/mmfs/fonts.conf $(CURDIR)/debian/mm-kb/usr/share/mmfs/
+	install -d $(CURDIR)/debian/mm-kb/usr/bin
+	install -m 755 src/mmfs/mmfs $(CURDIR)/debian/mm-kb/usr/bin/
+	
+	# Install desktop file
+	install -d $(CURDIR)/debian/mm-kb/usr/share/applications
+	install -m 644 src/mmfs/myanmar-font-switcher.desktop $(CURDIR)/debian/mm-kb/usr/share/applications/
+
+override_dh_auto_clean:
+	rm -f mm-myanmar3.db mm-zawgyi.db
