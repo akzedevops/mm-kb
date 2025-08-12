@@ -1,49 +1,68 @@
 Myanmar Keyboards
 =================
 
-##Introduction
+## Introduction
 
 - This package contains two types of Burmese Keyboard, Unicode and ZawGyi-One.
 
-##Installation
+## Installation
 
 - Type the following command one after another.
 ```
-$ git clone https://github.com/naingyeminn/mm-kb.git
-$ cd mm-kb
+$ mm_kb=https://github.com/naingyeminn/mm-kb/archive/master.zip
+$ wget $mm_kb 2> /dev/null || curl -OL $mm_kb
+$ unzip master.zip
+$ cd mm-kb-master
+$ sudo apt install make ibus-table -y
 $ sudo make install
 $ ibus-daemon -rdx
 $ im-config -n ibus
-$ gsettings set org.freedesktop.ibus.panel show 0
+$ mmfs
 ```
+
+**Or**
+
+One-line installation
+
+```
+bash <(wget -qO - http://tiny.cc/mm-kb-install 2> /dev/null || curl -L http://tiny.cc/mm-kb-install)
+```
+
 Now you can add the keyboard as follow.
 
-- Click on **Text Entry Settings...**
-![Text Entry Setting](https://dl.dropboxusercontent.com/u/26716001/Ubuntu/ScreenShots/mm-kb/Ubuntu%2064-bit-2014-10-01-22-11-27.png)
+- Go to **Settings > Region & Language**
 
-- Click on **"+"** button and search **Burmese** input. You will see Burmese, Burmese (mm-myanmar3), and Burmese (mm-zawgyi).
-![input](https://dl.dropboxusercontent.com/u/26716001/Ubuntu/ScreenShots/mm-kb/Ubuntu%2064-bit-2014-10-01-22-12-22.png)
+- Click on **"+"** button and search **Burmese** input. You will see Burmese, Burmese (mm-smart), Burmese (mm-myanmar3), and Burmese (mm-zawgyi).
 
-- Add **Burmese (mm-myanmar3)** for ***Unicode*** keyboard and **Burmese (mm-zawgyi)** for ***ZawGyi-One*** keyboard.
+- **Burmese (mm-myanmar3)**, **Burmese (mm-smart)**, and **Burmese (mm-zawnicode)** are for ***Unicode*** input and **Burmese (mm-zawgyi)** is for ***ZawGyi-One*** input. **mm-zawnicode** is the ***Unicode*** input with **ZawGyi-One** keyboard layout.
 
 - Now you can change keyboard layout by pressing (**Super + Space**) key.
 
-- Whatever you are using, Burmese (mm-myanmar3) or Burmese (mm-zawgyi), you can switch between Burmese and English characters by a single press of **Left Shift** key.
+- Whatever you are using, **Burmese (mm-myanmar3 / mm-smart / mm-zawnicode)** or **Burmese (mm-zawgyi)**, you can switch between Burmese and English input by a single press of **Left Shift** key.
 
-##Changing System Fallback Font
+- **Shan (shn-standard)** and **Shan (shn-panglong)** inputs are also included and can be fond under **Others** input group using search.
 
-After installation, your system font will be changed into **ZawGyi-One**. If you want to switch to **Unicode** fonts, search **Myanmar Font Switcher** in Unity Dashboard and open it. You can change the font you want in there.
+## Changing System Fallback Font
 
-![myanmar-font-switcher](https://dl.dropboxusercontent.com/u/26716001/Ubuntu/ScreenShots/mm-kb/myanmar-font-switcher.png)
+After installation, your system font will be changed into **ZawGyi-One**. If you want to switch to **Unicode** fonts, search **Myanmar Font Switcher** by clicking the grid button at the bottom of the dash and run it. You can change the font you want in there.
 
-![myanmar-font-switcher](https://dl.dropboxusercontent.com/u/26716001/Ubuntu/ScreenShots/mm-kb/Screenshot%20from%202014-10-02%2015%3A07%3A32.png)
+## Installation on Ubuntu 18.04 LTS (Video)
+[![mm-kb Installation on Ubuntu 18.04 LTS](https://img.youtube.com/vi/LGDopj6D6PI/0.jpg)](https://www.youtube.com/watch?v=LGDopj6D6PI)
 
-##Contact
+## Uninstallation
+```
+$ cd mm-kb-master
+$ sudo make uninstall
+```
+
+## Contact
 
 ```
 Naing Ye` Minn
 naingyeminn@gmail.com
-nym@ubuntu-mm.net
-FreeNode IRC : yeminn
-website : http://nym.ubuntu-mm.net
+website : http://naingyeminn.com
 ```
+
+## Acknowledgement
+
+Thank you for your input and solution for Zawgyi Layout issue, Bro [Kaung Mon Htay](https://github.com/kaiz16).

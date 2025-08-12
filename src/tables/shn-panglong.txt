@@ -7,25 +7,30 @@ VERSION_1_0
 ### Begin Table definition.
 BEGIN_DEFINITION
 
+### License
+LICENSE = LGPL
+
+### Created by Naing Ye Minn <naingyeminn@gmail.com>
+
 ### An unique id to distinguish this table among others.
 ### Use uuidgen to generate this kind of id.
-UUID = e6ec273b-a1ba-402a-89d2-64fec1f9902e
+UUID = 4794c56e-4e76-4177-a00b-01d50608677f
 
 ### A unique number indicates the version of this file.
 ### For example the last modified date of this file.
 ### This number must be less than 2^32.
-SERIAL_NUMBER = 20100301
+SERIAL_NUMBER = 20200513
 
 ICON = mm-myanmar3.svg
 
 ### The default name of this table
-NAME = mm3
+NAME = shn-panglong
 
-### The local names of this table 
-### NAME.my_MM = 
+### The local names of this table
+### NAME.my_MM =
 
 ### Supported languages of this table
-LANGUAGES = my_MM
+LANGUAGES = shn_MM
 
 ### The author of this table
 AUTHOR = Naing Ye Minn <naingyeminn@gmail.com>
@@ -33,13 +38,16 @@ AUTHOR = Naing Ye Minn <naingyeminn@gmail.com>
 ### Prompt string to be displayed in the status area.
 STATUS_PROMPT = MM
 
+### The Keyboard Layout used by this table. Unset or set to "Unknown" to accept any kind of layouts.
+KEYBOARD_LAYOUT = US_Default
+
 ### If true then the first candidate phrase
 ### will be selected automatically during inputing.
 AUTO_SELECT = TRUE
 
 ### If true then a multi wildcard will be appended
 ### at the end of inputing string automatically.
-AUTO_WILDCARD = FALSE
+AUTO_WILDCARD = TRUE
 
 ### If true then the result string will be committed to client automatically.
 ### This should be used with AUTO_SELECT = TRUE.
@@ -57,7 +65,7 @@ AUTO_FILL = FALSE
 ### If true then the lookup table will always be shown if there is any candidate phrase.
 ### Otherwise the lookup table won't be shown unless the user requires it by moving the preedit caret left.
 ALWAYS_SHOW_LOOKUP = FALSE
-NEVER_SHOW_LOOKUP = TRUE
+
 ### If true then discard invalid key
 DISCARD_INVALID_KEY = FALSE
 
@@ -68,7 +76,7 @@ DEF_FULL_WIDTH_PUNCT = FALSE
 DEF_FULL_WIDTH_LETTER = FALSE
 
 ### The maxmium length of a key.
-MAX_KEY_LENGTH = 3
+MAX_KEY_LENGTH = 7
 
 ### Show key prompt if true
 SHOW_KEY_PROMPT = TRUE
@@ -77,13 +85,7 @@ SHOW_KEY_PROMPT = TRUE
 DISCARD_INVALID_KEY = FALSE
 
 ### Valid input chars.
-VALID_INPUT_CHARS = abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*\|[{]};:<>`~
-
-### Whether user are allow to define phrase, default is true
-USER_CAN_DEFINE_PHRASE = FALSE
- 
-### Whether support PinYin Mode, default is true
-PINYIN_MODE = FALSE
+VALID_INPUT_CHARS = abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!@#$%^&*\|[{]};:'",.>`~/?
 
 ### Single wildcard char, can have multiple chars.
 ### SINGLE_WILDCARD_CHAR = ?
@@ -95,187 +97,215 @@ PINYIN_MODE = FALSE
 ### SPLIT_KEYS = Return
 
 ### The key strokes to commit the convert result to client.
-### COMMIT_KEYS = space
+COMMIT_KEYS = space
 
 ### The key strokes to forward the inputted string to client.
 ### FORWARD_KEYS = space
 
-### The key strokes to select candidiate phrases.
-### SELECT_KEYS = 1,2,3,4,5,6,7,8,9
+### The key strokes to select candidate phrases.
+SELECT_KEYS = 1,2,3,4,5,6,7,8,9
 
 ### The key strokes to page up the lookup table.
-PAGE_UP_KEYS = Shift+less,Page_Up
+PAGE_UP_KEYS = Shift+less,Page_Up,comma,minus
 
 ### The key strokes to page down the lookup table.
-PAGE_DOWN_KEYS = Shift+greater,Page_Down
+PAGE_DOWN_KEYS = Shift+greater,Page_Down,period,equal,space
 
 ### Define the prompts of each valid input char.
 BEGIN_CHAR_PROMPTS_DEFINITION
 a	ေ
-b	ဘ
-c 	ခ
+b	ႇ
+c	ၶ
 d	ိ
-e 	န
-f 	်
-g 	ါ
-h 	့
-i 	င
-j 	ြ
-k 	ု
-l 	ူ
-m 	ာ
-n 	ည
-o 	သ
-p 	စ
-q 	ဆ
-r 	မ
-s 	ျ
-t 	အ
-u 	က
-v 	လ
-w 	တ
-x 	ထ
-y 	ပ
-z 	ဖ
-A	ဗ
-B	ယ
-C	ဃ
+e	ၼ
+f	်
+g	ႂ
+h	ႉ
+i	င
+j	ႈ
+k	ု
+l	ူ
+m	ၢ
+n	ဢ
+o	သ
+p	ၺ
+q	ၸ
+r	မ
+s	ျ
+t	​ႄ
+u	ၵ
+v	လ
+w	တ
+x	ထ
+y	ပ
+z	ၽ
+A	ဵ
+B	ႆ
+C	ၷ
 D	ီ
-E	ဣ
-F	္
-G	ွ
+F	ႅ
+G	…
 H	ံ
-I	၍
-J	ဲ
-K	ဒ
-L	ဓ
-M	ဦ
-N	ဉ
-O	ဿ
-P	ဏ
-Q	ဈ
-R	၎
-S	ှ
-T	ဤ
-U	ဥ
-V	ဠ
-W	ဝ
-X	ဌ
-Y	၌
-Z	ဇ
-1	၁
-2	၂
-3	၃
-4	၄
-5	၅
-6	၆
-7	၇
-8	၈
-9	၉
-0	၀
-!	ဍ
-@	ၒ
-#	ဋ
-$	ၓ
-%	ၔ
-^	ၕ
-&	ရ
-[	ဟ
-]	ဩ
-\	၏
-{	ဧ
-}	ဪ
-|	ၑ
+M	ႃ
+O	ဝ
+P	[
+Q	ၹ
+V	ၿ
+W	ၻ
+X	ႀ
+Y	ြ
+Z	ၾ
+1	႑
+2	႒
+3	႓
+4	႔
+5	႕
+6	႖
+7	႗
+8	႘
+9	႙
+0	႐
+!	!
+@	@
+#	#
+$	$
+%	%
+^	^
+&	&
+*	*
+(	(
+)	)
+\	ရ
+|	႟
+[	ႁ
+{	 >
 ;	း
-:	ဂ
-<	၊
->	။
-`	ၐ
-~	ဎ
+'	ႊ
+"	႞
+,	ယ
+.	ွ
+>	?
+?	၊
+/	။
+`	`
 END_CHAR_PROMPTS_DEFINITION
 END_DEFINITION
 
 ### Begin Table data.
 BEGIN_TABLE
+au	﻿ၵေ	500
+aus	ၵျေ	500
+ac	ၶေ	499
+ai	ငေ	498
+aq	ၸေ	497
+ao	သေ	496
+ap	ၺေ	495
+aw	တေ	494
+awY	တြေ	494
+ax	ထေ	493
+ae	ၼေ	492
+ay	ပေ	491
+az	ၽေ	490
+aZ	ၾေ	489
+ar	မေ	488
+a,	ယေ	487
+a\	ရေ	486
+av	လေ	485
+aO	ဝေ	484
+a[	ႁေ	483
+an	ဢေ	482
+tu	ၵႄ	500
+tc	ၶႄ	499
+ti	ငႄ	498
+tq	ၸႄ	497
+to	သႄ	496
+tp	ၺႄ	495
+tw	တႄ	494
+tx	ထႄ	493
+te	ၼႄ	492
+ty	ပႄ	491
+tz	ၽႄ	490
+tZ	ၾႄ	489
+tr	မႄ	488
+t,	ယႄ	487
+t\	ရႄ	486
+tv	လႄ	485
+tO	ဝႄ	484
+t[	ႁႄ	483
+tn	ဢႄ	482
 a	ေ	1000
-b	ဘ	1000
-c	ခ	1000
+b	ႇ	1000
+c	ၶ	1000
 d	ိ	1000
-e	န	1000
+e	ၼ	1000
 f	်	1000
-g	ါ	1000
-h	့	1000
+g	ႂ	1000
+h	ႉ	1000
 i	င	1000
-j	ြ	1000
+j	ႈ	1000
 k	ု	1000
 l	ူ	1000
-m	ာ	1000
-n	ည	1000
+m	ၢ	1000
+n	ဢ	1000
 o	သ	1000
-p	စ	1000
-q	ဆ	1000
+p	ၺ	1000
+q	ၸ	1000
 r	မ	1000
 s	ျ	1000
-t	အ	1000
-u	က	1000
+t	​ႄ	1000
+u	ၵ	1000
 v	လ	1000
 w	တ	1000
 x	ထ	1000
 y	ပ	1000
-z	ဖ	1000
-A	ဗ	1000
-B	ယ	1000
-C	ဃ	1000
+z	ၽ	1000
+A	ဵ	1000
+B	ႆ	1000
+C	ၷ	1000
 D	ီ	1000
-E	ဣ	1000
-F	္	1000
-G	ွ	1000
+F	ႅ	1000
+G	…	1000
 H	ံ	1000
-I	၍	1000
-J	ဲ	1000
-K	ဒ	1000
-L	ဓ	1000
-M	ဦ	1000
-N	ဉ	1000
-O	ဿ	1000
-P	ဏ	1000
-Q	ဈ	1000
-R	၎	1000
-S	ှ	1000
-T	ဤ	1000
-U	ဥ	1000
-V	ဠ	1000
-W	ဝ	1000
-X	ဌ	1000
-Y	၌	1000
-Z	ဇ	1000
-1	၁	1000
-2	၂	1000
-3	၃	1000
-4	၄	1000
-5	၅	1000
-6	၆	1000
-7	၇	1000
-8	၈	1000
-9	၉	1000
-0	၀	1000
-!	ဍ	1000
-@	ၒ	1000
-#	ဋ	1000
-$	ၓ	1000
-%	ၔ	1000
-^	ၕ	1000
-&	ရ	1000
-[	ဟ	1000
-]	ဩ	1000
-\	၏	1000
-{	ဧ	1000
-}	ဪ	1000
-|	ၑ	1000
+M	ႃ	1000
+O	ဝ	1000
+P	[	1000
+Q	ၹ	1000
+V	ၿ	1000
+W	ၻ	1000
+X	ႀ	1000
+Y	ြ	1000
+Z	ၾ	1000
+1	႑	1000
+2	႒	1000
+3	႓	1000
+4	႔	1000
+5	႕	1000
+6	႖	1000
+7	႗	1000
+8	႘	1000
+9	႙	1000
+0	႐	1000
+!	!	1000
+@	@	1000
+#	#	1000
+$	$	1000
+%	%	1000
+^	^	1000
+&	&	1000
+*	*	1000
+(	(	1000
+)	)	1000
+\	ရ	1000
+|	႟	1000
+[	ႁ	1000
+{	 >	1000
 ;	း	1000
-:	ဂ	1000
-<	၊	1000
->	။	1000
-`	ၐ	1000
-~	ဎ	1000
+'	ႊ	1000
+"	႞	1000
+,	ယ	1000
+.	ွ	1000
+>	?	1000
+?	၊	1000
+/	။	1000
+`	`	1000
 END_TABLE
